@@ -58,18 +58,23 @@ export default function Links() {
                 <div className="col-span-1 grid grid-cols-1 bg-gray-800 bg-opacity-85 rounded-3xl md:p-6 p-4 md:gap-6 gap-3">
                     {
                         links.map((link, index) => (
-                            <div key={index} className='bg-slate-600 rounded-xl md:p-4 p-2'>
-                                <div className="md:text-xl text-sm text-slate-300 flex items-center">
-                                    <span className='mr-5 ml-2 md:text-5xl text-lg text-slate-300'>{link.icon}</span>
-                                    {
-                                        link.clickable ? (
-                                            <Link href={link.content} target="_blank" className='transition-all hover:text-amber-500 hover:underline hover:underline-offset-8'>{link.title}</Link>
-                                        ) : (
-                                            <p>{link.title}</p>
-                                        )
-                                    }
+                            link.clickable ? (
+                                <Link key={index} href={link.content} target="_blank">
+                                    <div className='cursor-pointer transition-all hover:bg-green-500 bg-slate-600 rounded-xl md:p-4 p-2'>
+                                        <div className="md:text-xl text-sm text-slate-300 flex items-center">
+                                            <span className='mr-5 ml-2 md:text-5xl text-lg text-slate-300'>{link.icon}</span>
+                                            <span className='transition-all hover:text-amber-500'>{link.title}</span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ) : (
+                                <div key={index} className='bg-slate-600 rounded-xl md:p-4 p-2'>
+                                    <div className="md:text-xl text-sm text-slate-300 flex items-center">
+                                        <span className='mr-5 ml-2 md:text-5xl text-lg text-slate-300'>{link.icon}</span>
+                                        <span>{link.title}</span>
+                                    </div>
                                 </div>
-                            </div>
+                            )
                         ))
                     }
                 </div >

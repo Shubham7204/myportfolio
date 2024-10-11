@@ -25,3 +25,9 @@ nav {
 main {
   @apply container mx-auto md:px-12 p-4;
 }
+
+@layer utilities {
+  .inline-icon {
+    vertical-align: -0.125em;
+  }
+}

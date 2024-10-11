@@ -1,19 +1,63 @@
 import Image from "next/image";
 import WaveImage from "../../public/wave.svg";
 import Link from "next/link";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { GITHUB_LINK, EMAIL_ID, INSTAGRAM_LINK, LINKEDIN_LINK } from '../data/constants';
 
 const name = "{Shubham Mourya}";
 
+const contactLinks = [
+    {
+        title: 'Github',
+        icon: <FaGithub className="text-slate-200 md:text-xl text-lg" />,
+        url: GITHUB_LINK
+    },
+    {
+        title: 'LinkedIn',
+        icon: <FaLinkedin className="text-slate-200 md:text-xl text-lg" />,
+        url: LINKEDIN_LINK
+    },
+    {
+        title: 'Instagram',
+        icon: <FaInstagram className="text-slate-200 md:text-xl text-lg" />,
+        url: INSTAGRAM_LINK
+    },
+    {
+        title: 'Email',
+        icon: <MdEmail className="text-slate-200 md:text-xl text-lg" />,
+        url: 'mailto:' + EMAIL_ID
+    }
+];
+
 export default function Footer() {
     return (
-        <>
-            <Image src={WaveImage} alt="" className="pointer-events-none w-full select-none" />
-            <div className="bg-green-700 flex justify-center items-center md:pt-0 pt-4">
-                <h1 className="mb-10 md:mx-0 mx-6 md:-mt-10 md:text-lg text-xs text-center text-slate-200 rounded-md select-none leading-loose">
-                    {new Date().getFullYear()} {name} | 
-                    <Link className="md:no-underline underline underline-offset-2 md:text-slate-200 text-amber-500 md:transition-all md:hover:underline md:hover:text-amber-500 md:hover:underline-offset-8 ml-2" target="_blank" href="https://www.linkedin.com/in/shubham-mourya-b09502203/">LinkedIn</Link>
-                </h1>
+        <footer className="relative">
+            <Image src={WaveImage} alt="" className="w-full select-none" />
+            <div className="bg-green-700 py-6">
+                <div className="container mx-auto px-4">
+                    <div className="flex flex-col items-center">
+                        {/* Contact Links */}
+                        <div className="flex space-x-6 mb-4">
+                            {contactLinks.map((link, index) => (
+                                <Link 
+                                    key={index} 
+                                    href={link.url} 
+                                    target="_blank" 
+                                    className="hover:text-amber-500 transition-colors"
+                                    aria-label={link.title}
+                                >
+                                    {link.icon}
+                                </Link>
+                            ))}
+                        </div>
+                        {/* Footer Text */}
+                        <p className="text-slate-200 text-sm md:text-base text-center">
+                            {new Date().getFullYear()} {name}
+                        </p>
+                    </div>
+                </div>
             </div>
-        </>
+        </footer>
     );
 }

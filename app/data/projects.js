@@ -1,12 +1,5 @@
 import { techSkills } from "./skills";
 import UrlShortner from "../../public/urlshort.png";
-import SchedulexImage from "../../public/schedulex.png";
-import ExaminatorImage from "../../public/examinator.png";
-import OpenRestaurantImage from "../../public/openrestaurant.png";
-import FoodzillaImage from "../../public/foodzilla.png";
-import EventManagementSystem from "../../public/eventmanagementsystem.png";
-import MuiStickyNotesImage from "../../public/muistickynotes.png";
-import SmartSecureLockImage from "../../public/smartsecurelock.png";
 
 export const projects = [
   {
